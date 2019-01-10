@@ -1,18 +1,21 @@
 package io.github.ted005.swaggerdemo.pojo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Person {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String name;
-    private int phoneNumber;
+    private long phoneNumber;
     private String address;
 
-    public Person(String name, int phoneNumber, String address) {
+    public Person(String name, long phoneNumber, String address) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -26,11 +29,11 @@ public class Person {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
