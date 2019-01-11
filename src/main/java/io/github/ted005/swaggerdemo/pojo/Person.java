@@ -23,6 +23,9 @@ public class Person {
     private long phoneNumber;
     private String address;
 
+    public Person() {
+    }
+
     public Person(String name, long phoneNumber, String address) {
         this.name = name;
         this.phoneNumber = phoneNumber;

@@ -1,5 +1,6 @@
 package io.github.ted005.swaggerdemo.dao;
 
+import com.google.common.collect.Lists;
 import io.github.ted005.swaggerdemo.pojo.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -32,7 +33,15 @@ public class ContactDaoImpl implements ContactDao {
 
     @Override
     public Person getContactByName(String name) {
-        return null;
+        List<Person> personList = jdbcTemplate.query("select * from person where name = '" + name + "'", (rs, row) -> {
+            return new Person(rs.getString("name"),
+                    rs.getLong("phoneNumber"),
+                    rs.getString("address"));
+        });
+        if (personList != null && !personList.isEmpty()) {
+            return personList.get(0);
+        }
+        return new Person();
     }
 
     @Override
