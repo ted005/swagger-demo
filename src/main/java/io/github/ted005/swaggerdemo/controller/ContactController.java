@@ -22,14 +22,14 @@ public class ContactController {
         return "hello world";
     }
 
-    @GetMapping("/getAll")
-    public List<Person> getAllPersons() {
+    @GetMapping("/persons")
+    public Iterable<Person> getAllPersons() {
         return contactService.getAllContacts();
     }
 
-    @GetMapping("/getPersonByName")
-    public Person getPersonByName(@RequestParam("name") String name) {
-        return contactService.getContactByName(name);
+    @GetMapping("/getPersonById")
+    public Person getPersonById(@RequestParam("id") int personId) {
+        return contactService.getContactById(personId);
     }
 
 

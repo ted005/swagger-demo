@@ -23,6 +23,7 @@ public class Person {
     private long phoneNumber;
     private String address;
 
+    // 需提供默认构成函数
     public Person() {
     }
 

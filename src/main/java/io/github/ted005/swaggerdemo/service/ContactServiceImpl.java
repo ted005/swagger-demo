@@ -6,35 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service("contactService")
+@Service
 public class ContactServiceImpl implements ContactService {
 
     @Autowired
     private ContactDao contactDao;
 
     @Override
-    public void createContact(Person newPerson) {
-        this.contactDao.createContact(newPerson);
+    public Iterable<Person> getAllContacts() {
+        return contactDao.findAll();
     }
 
     @Override
-    public List<Person> getAllContacts() {
-        return this.contactDao.getAllContacts();
-    }
-
-    @Override
-    public Person getContactByName(String name) {
-        return this.contactDao.getContactByName(name);
-    }
-
-    @Override
-    public void updateContact(Person update) {
-        this.contactDao.updateContact(update);
-    }
-
-    @Override
-    public void deleteContact(Person toBeDeleted) {
-        this.contactDao.deleteContact(toBeDeleted);
+    public Person getContactById(int id) {
+        Optional<Person> optional = contactDao.findById(id);
+        return optional.orElse(null);
     }
 }

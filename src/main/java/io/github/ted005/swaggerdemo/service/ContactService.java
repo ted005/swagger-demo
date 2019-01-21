@@ -6,13 +6,7 @@ import java.util.List;
 
 public interface ContactService {
 
-    void createContact(Person newPerson);
+    Iterable<Person> getAllContacts();
 
-    List<Person> getAllContacts();
-
-    Person getContactByName(String name);
-
-    void updateContact(Person update);
-
-    void deleteContact(Person toBeDeleted);
+    Person getContactById(int id);
 }
