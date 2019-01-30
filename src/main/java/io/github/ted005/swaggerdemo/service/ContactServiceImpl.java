@@ -24,4 +24,11 @@ public class ContactServiceImpl implements ContactService {
         Optional<Person> optional = contactDao.findById(id);
         return optional.orElse(null);
     }
+
+    @Override
+    public List<Person> peronsInShanghai() {
+        return contactDao.findPersonsInShanghai();
+    }
+
+
 }

@@ -32,5 +32,8 @@ public class ContactController {
         return contactService.getContactById(personId);
     }
 
-
+    @GetMapping("/inshanghai")
+    public Iterable<Person> personsInShanghai() {
+        return contactService.peronsInShanghai();
+    }
 }

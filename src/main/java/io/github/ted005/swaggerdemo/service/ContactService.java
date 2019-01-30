@@ -9,4 +9,6 @@ public interface ContactService {
     Iterable<Person> getAllContacts();
 
     Person getContactById(int id);
+
+    List<Person> peronsInShanghai();
 }
